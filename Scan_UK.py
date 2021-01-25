@@ -14,7 +14,7 @@ query = "EVGA"
 query2 = "Founder's"
 img = 'https://images.anandtech.com/doci/16197/geforce-rtx-3070-tns_678x452.png'
 
-url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies'
+url = '5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
 result = requests.get(url, headers=headers).text
 soup = BeautifulSoup(result, 'lxml')
 print(soup)
