@@ -1,6 +1,5 @@
 import requests
 import discord
-import unicodedata
 from discord_webhook import *
 import time
 from bs4 import BeautifulSoup
