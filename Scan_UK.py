@@ -4,8 +4,10 @@ from discord_webhook import *
 import time
 from bs4 import BeautifulSoup
 from threading import Thread
+from twocaptcha import TwoCaptcha
 
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36'}
+solver = TwoCaptcha('fe98eb6f0b8f6042e62dbe4d3eaec3c0')
+headers = {'User-Agent': 'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0'}
 TOKEN = 'NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34'
 client = discord.Client()
 webhookurl = 'https://discord.com/api/webhooks/803110829801209868/EIfQlHKLH69f3-I4EZ2e1_3QxPAFq4K1YRd9a2X9WNYWGur8M3pGYeornKrwfMvnMlSv'
@@ -15,11 +17,11 @@ query2 = "Founder's"
 img = 'https://images.anandtech.com/doci/16197/geforce-rtx-3070-tns_678x452.png'
 
 url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies'
-result = requests.get(url, headers=headers).text
+result = solver.recaptcha(sitekey='6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-', url=url)
+result = requests.get(result, headers=headers).text
 soup = BeautifulSoup(result, 'lxml')
 print(soup)
 john = soup.find_all('li', class_='product')
-print(john)
     
 def ScanUKLoop():
     print('work1')
