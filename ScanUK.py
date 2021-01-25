@@ -26,9 +26,6 @@ async def on_ready():
         product_link = image.find('span', attrs={'class':'description'}).a.get('href')
         product_link = ('https://www.scan.co.uk'+product_link)
         product_name = image.find('span', attrs={'class':'description'}).a.text
-        print(query2)
-        print(query)
-        print(product_name)
         if(query.lower() in product_name.lower() or query2.lower() in product_name.lower()):
             try:
                 product_price = image.find('div', attrs={'class':'leftColumn'}).span.text
