@@ -19,6 +19,8 @@ result = requests.get(url, headers=headers)
 src = result.content
 soup = BeautifulSoup(src, 'lxml')
     
+for query in 'evga is ass':
+    print('mom help me')
 def ScanUKLoop():
     print('work1')
     for image in soup.find_all('li', class_='product'):
