@@ -23,7 +23,6 @@ print('Fucking work before i kms')
 def ScanUKLoop():
     print('I work here haha')
     while 1:
-        print('414')
         for image in soup.find_all('li', class_='product'):
             print('69420')
             product_brand = soup.find('ul', attrs={'itemtype':'http://schema.org/BreadcrumbList'}).find('strong').text
