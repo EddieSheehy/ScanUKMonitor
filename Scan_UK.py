@@ -18,12 +18,12 @@ url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w
 result = requests.get(url, headers=headers)
 src = result.content
 soup = BeautifulSoup(src, 'lxml')
+john = soup.find_all('li', class_='product')
+print(john)
     
-for query in 'evga is ass':
-    print('mom help me')
 def ScanUKLoop():
     print('work1')
-    for image in soup.find_all('li', class_='product'):
+    for image in john:
         print('work2')
         product_brand = soup.find('ul', attrs={'itemtype':'http://schema.org/BreadcrumbList'}).find('strong').text
         product_link = image.find('span', attrs={'class':'description'}).a.get('href')
