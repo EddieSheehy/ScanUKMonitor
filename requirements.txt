@@ -5,4 +5,3 @@ discord
 lxml
 discord_webhook
 gunicorn
-gettingstarted
