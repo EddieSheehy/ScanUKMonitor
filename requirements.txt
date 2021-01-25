@@ -2,7 +2,6 @@ requests
 bs4==0.0.1
 beautifulsoup4
 discord
-lxml
 time
 discord.ext
 unicodedata
