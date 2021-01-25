@@ -4,6 +4,3 @@ beautifulsoup4
 discord
 lxml
 discord_webhook
-gunicorn
-Django
-whitenoise==4.0
