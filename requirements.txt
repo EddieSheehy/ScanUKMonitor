@@ -4,3 +4,4 @@ beautifulsoup4
 discord
 lxml
 discord_webhook
+gunicorn
