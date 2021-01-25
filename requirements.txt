@@ -4,4 +4,4 @@ beautifulsoup4
 discord
 lxml
 discord_webhook
-twocaptcha
+2captcha-python
