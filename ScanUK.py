@@ -11,7 +11,7 @@ TOKEN = 'NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34'
 client = discord.Client()
 webhookurl = 'https://discord.com/api/webhooks/803110829801209868/EIfQlHKLH69f3-I4EZ2e1_3QxPAFq4K1YRd9a2X9WNYWGur8M3pGYeornKrwfMvnMlSv'
 n = 0
-query = "EVGA"
+query = "Founders"
 query2 = "Founder's"
 img = 'https://images.anandtech.com/doci/16197/geforce-rtx-3070-tns_678x452.png'
 
