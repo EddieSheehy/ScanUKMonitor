@@ -15,9 +15,8 @@ query2 = "Founder's"
 img = 'https://images.anandtech.com/doci/16197/geforce-rtx-3070-tns_678x452.png'
 
 url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies'
-result = requests.get(url, headers=headers)
-src = result.content
-soup = BeautifulSoup(src, 'lxml')
+result = requests.get(url, headers=headers).text
+soup = BeautifulSoup(result, 'lxml')
 john = soup.find_all('li', class_='product')
 print(john)
     
