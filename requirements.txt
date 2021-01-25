@@ -6,4 +6,4 @@ lxml
 discord_webhook
 gunicorn
 Django
-whitenoise
+whitenoise==4.0
