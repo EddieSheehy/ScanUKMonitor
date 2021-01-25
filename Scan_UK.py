@@ -17,6 +17,14 @@ query2 = "Founder's"
 img = 'https://images.anandtech.com/doci/16197/geforce-rtx-3070-tns_678x452.png'
 
 url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies'
+
+result = requests.get(url, headers=headers).text
+soup = BeautifulSoup(result, 'lxml')
+captchasite = soup.find('input', attrs={'name':'vc'})
+print(captchasite)
+capresult = solver.funcaptcha(sitekey='dbc8eef2-aa58-4614-bd24-e0cd52d75438', challenge='12345678abc90123d45678ef90123a456b',url='https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies')
+time.sleep(5)
+print(solver.getResult(capresult))
 result = requests.get(url, headers=headers).text
 soup = BeautifulSoup(result, 'lxml')
 print(soup)
