@@ -1,2 +1,2 @@
 worker1: python ScanUK.py
-web: gunicorn gettingstarted.wsgi
+web: gunicorn scanuk-monitor.wsgi --log-file -
