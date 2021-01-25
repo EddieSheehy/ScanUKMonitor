@@ -5,17 +5,17 @@ import time
 from bs4 import BeautifulSoup
 from threading import Thread
 
-print('LA LA LA LA LAL L A')
+print('LA LA LA LA LAL L')
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 TOKEN = 'NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34'
 client = discord.Client()
 webhookurl = 'https://discord.com/api/webhooks/803110829801209868/EIfQlHKLH69f3-I4EZ2e1_3QxPAFq4K1YRd9a2X9WNYWGur8M3pGYeornKrwfMvnMlSv'
 n = 0
-query = "Founders"
+query = "EVGA"
 query2 = "Founder's"
 img = 'https://images.anandtech.com/doci/16197/geforce-rtx-3070-tns_678x452.png'
 
-url = 'https://www.scan.co.uk/shop/computer-hardware/gpu-nvidia/nvidia-geforce-rtx-3070-graphics-cards'
+url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies'
 result = requests.get(url, headers=headers)
 src = result.content
 soup = BeautifulSoup(src, 'lxml')
@@ -23,7 +23,9 @@ print('Fucking work before i kms')
 def ScanUKLoop():
     print('I work here haha')
     while 1:
+        print('414')
         for image in soup.find_all('li', class_='product'):
+            print('69420')
             product_brand = soup.find('ul', attrs={'itemtype':'http://schema.org/BreadcrumbList'}).find('strong').text
             product_link = image.find('span', attrs={'class':'description'}).a.get('href')
             product_link = ('https://www.scan.co.uk'+product_link)
