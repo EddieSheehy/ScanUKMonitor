@@ -4,6 +4,7 @@ import unicodedata
 from discord_webhook import *
 import time
 from bs4 import BeautifulSoup
+from threading import Thread
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 TOKEN = 'NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34'
@@ -14,13 +15,12 @@ query = "Founders"
 query2 = "Founder's"
 img = 'https://images.anandtech.com/doci/16197/geforce-rtx-3070-tns_678x452.png'
 
-@client.event
-async def on_ready():
-    url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies'
-    result = requests.get(url, headers=headers)
-    src = result.content
-    soup = BeautifulSoup(src, 'lxml')
+url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies'
+result = requests.get(url, headers=headers)
+src = result.content
+soup = BeautifulSoup(src, 'lxml')
     
+def ScanUKLoop():
     for image in soup.find_all('li', class_='product'):
         product_brand = soup.find('ul', attrs={'itemtype':'http://schema.org/BreadcrumbList'}).find('strong').text
         product_link = image.find('span', attrs={'class':'description'}).a.get('href')
@@ -65,5 +65,10 @@ async def on_ready():
         else:
             print('ScanUK: No Product Detected')
             time.sleep(6)
+
+@client.event
+async def on_ready():
+    thread1 = Thread(target=ScanUKLoop)
+    thread1.start()
 
 client.run(TOKEN)
