@@ -20,9 +20,9 @@ url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w
 
 result = requests.get(url, headers=headers).text
 soup = BeautifulSoup(result, 'lxml')
-captchasite = soup.find('input', attrs={'name':'vc'})
+captchasite = soup.find('input', attrs={'name':'vc'}).get('value')
 print(captchasite)
-capresult = solver.funcaptcha(sitekey='dbc8eef2-aa58-4614-bd24-e0cd52d75438', challenge='12345678abc90123d45678ef90123a456b',url='https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies')
+capresult = solver.funcaptcha(sitekey='dbc8eef2-aa58-4614-bd24-e0cd52d75438', challenge=captchasite,url='https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies')
 time.sleep(5)
 print(solver.getResult(capresult))
 result = requests.get(url, headers=headers).text
