@@ -6,3 +6,4 @@ lxml
 discord_webhook
 gunicorn
 Django
+whitenoise
