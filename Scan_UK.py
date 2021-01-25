@@ -5,7 +5,7 @@ import time
 from bs4 import BeautifulSoup
 from threading import Thread
 
-headers = {'User-Agent': '5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'}
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36'}
 TOKEN = 'NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34'
 client = discord.Client()
 webhookurl = 'https://discord.com/api/webhooks/803110829801209868/EIfQlHKLH69f3-I4EZ2e1_3QxPAFq4K1YRd9a2X9WNYWGur8M3pGYeornKrwfMvnMlSv'
