@@ -2,7 +2,6 @@ import requests
 import discord
 import unicodedata
 from discord_webhook import *
-from discord.ext import commands
 import time
 from bs4 import BeautifulSoup
 
