@@ -5,3 +5,4 @@ discord
 lxml
 discord_webhook
 2captcha-python
+requests_html
