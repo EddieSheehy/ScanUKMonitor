@@ -1,10 +1,15 @@
 import requests
+from requests_html import HTMLSession
 import discord
 from discord_webhook import *
 import time
 from bs4 import BeautifulSoup
 from threading import Thread
 from twocaptcha import TwoCaptcha
+
+session = HTMLSession()
+r = session.get('https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies')
+r.html.render()
 
 solver = TwoCaptcha('fe98eb6f0b8f6042e62dbe4d3eaec3c0')
 headers = {'User-Agent': 'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0'}
@@ -20,16 +25,17 @@ url = 'https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w
 
 result = requests.get(url, headers=headers).text
 soup = BeautifulSoup(result, 'lxml')
-captchasite = soup.find('input', attrs={'name':'vc'}).get('value')
-print(soup)
+
+captchasite = r.find('input', attrs={'name':'vc'}).get('value')
 print(captchasite)
-capresult = solver.funcaptcha(sitekey='dbc8eef2-aa58-4614-bd24-e0cd52d75438', challenge=captchasite,url='https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies')
+capresult = r.funcaptcha(sitekey='dbc8eef2-aa58-4614-bd24-e0cd52d75438', challenge='12345678abc90123d45678ef90123a456b',url='https://www.scan.co.uk/shop/computer-hardware/power-supplies/600w-to-780w-atx-power-supplies')
 time.sleep(5)
 print(solver.getResult(capresult))
 result = requests.get(url, headers=headers).text
 soup = BeautifulSoup(result, 'lxml')
 print(soup)
 john = soup.find_all('li', class_='product')
+
     
 def ScanUKLoop():
     print('work1')
