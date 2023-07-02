@@ -18,4 +18,4 @@ python3 Scan_UK.py
 ```
 
 ## Example of Discord Webhook
-![Here](images/)
+![Here](images/Screenshot%202023-07-02%20at%2016.58.58.png)
